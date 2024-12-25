@@ -1,0 +1,122 @@
+{% load static %}
+{% load goods_tags %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static "deps/css/bootstrap/bootstrap.min.css" %}">
+    <link rel="stylesheet" href="{% static "deps/css/my_css.css" %}">
+    {% block css %}
+
+    {% endblock %}
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static "deps/favicon/apple-touch-icon.png" %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static "deps/favicon/favicon-32x32.png" %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static "deps/favicon/favicon-16x16.png" %}">
+    <link rel="manifest" href="{% static "deps/favicon/site.webmanifest" %}">
+    <title>{{ title }}</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="{% url "main:index" %}" style="color: #000000;">Bookstore</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarSupportedContent">
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
+                                Інформація
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="{% url "main:delivery_information" %}" style="color: #000000;">Доставка та оплата</a></li>
+                                <li><a class="dropdown-item" href="{% url "main:contacts" %}" style="color: #000000;">Контактна інформація</a></li>
+                                <li><a class="dropdown-item" href="{% url "main:about" %}" style="color: #000000;">Про нас</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "user:users_cart" %}" style="color: #000000;">Кошик</a>
+                        </li>
+                        {% if not user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url "user:login" %}" style="color: #000000;">Увійти</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item dropdown ">
+                            <a class="nav-link dropdown-toggle" href="#" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false" style="color: #000000;">
+                                Мій профіль
+                            </a>
+                            <ul class="dropdown-menu">
+                                {% comment %} <li><a class="dropdown-item" href="carts/cart.html">Кошик</a></li> {% endcomment %}
+                                <li><a class="dropdown-item" href="{% url "user:profile" %}" style="color: #000000;">Особистий кабінет</a>
+                                </li>
+                                {% if user.is_admin or user.is_staff %}
+                                    <li><a class="dropdown-item" href="{% url "admin:index" %}" style="color: #000000;">Адмін панель</a></li>
+                                {% endif %}
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="{% url "user:logout" %}" style="color: #000000;">Вийти</a></li>
+                            </ul>
+                        </li>
+                        {% endif %}
+                    </ul>
+                    <form class="d-flex" role="search" action="{% url "catalog:search" %}" meth"get">
+                        <input class="form-control me-2" type="search" name="q" placeholder="Search" aria-label="Search" style="background-color: #fff;">
+                        <button class="btn" type="submit">Пошук</button>
+                    </form>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <section>
+        <div class="container">
+            <div class="row mt-1 position-fixed z-3">
+                <div class="dropdown mb-2">
+                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                        aria-expanded="false" style="background-color: #87CEEB; color: #000000;">
+                        Каталог
+                        <img class="mx-1" src="{% static "deps/icons/grid-fill.svg" %}" alt="Catalog Icon" width="16"
+                            height="16" style="filter: invert(0%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(100%) contrast(100%);">
+                    </button>
+                    <ul class="dropdown-menu" data-bs-theme="dark">
+                        {% tag_categories as categories %}
+                        {% for category in categories %}
+                            <li><a class="dropdown-item" href="{% url "catalog:index" category.slug %}" style="color: #000000;">{{category.name}}</a></li>
+                        {% endfor %}
+                    
+                    </ul>
+                </div>
+                {% block modal_cart %}{% endblock %}
+            </div>
+        </div>
+        <div class="container">
+            <div class="row mt-1">
+                <div class="col-lg-2">
+                </div>
+                <div class="col-lg-10">
+                    {% include "includes/notifications.html" %}
+                    {% block content %}{% endblock %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% block footer %}{% endblock %}
+
+<script src="{% static "deps/js/jquery/jquery-3.7.0.min.js" %}"></script>
+<script src="{% static "deps/js/jquery-ajax.js" %}"></script>
+<script src="{% static "deps/js/bootstrap/bootstrap.bundle.min.js" %}"></script>
+</body>
+</html>
+       

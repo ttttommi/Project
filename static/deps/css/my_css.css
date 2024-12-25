@@ -1,0 +1,237 @@
+body {
+  /* Встановлює фон зображення, яке не повторюється і займає всю область екрану */
+  background-image: url("../images/bg-image.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center center;
+  background-size: cover;
+  height: 100%;
+  color: #333; /* Встановлює колір тексту */
+  font: 'Arial', sans-serif; /* Встановлює шрифт */
+  font-weight: 700; /* Встановлює товщину шрифту */
+  margin: 0;
+  padding: 0;
+}
+
+/* Стрілочка в випадаючому меню */
+.dropdown-toggle::after {
+  content: '\25BC'; /* Символ стрілки вниз */
+  color: #fff; /* Колір стрілки */
+  margin-left: 5px; /* Відступ зліва */
+}
+
+/* Тінь для елементів */
+.custom-shadow {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тінь навколо елементу */
+  border-radius: 10px; /* Округлі кути */
+}
+
+/* Стиль ID продукту */
+.product_id {
+  color: #555; /* Колір тексту */
+  font-size: 14px; /* Розмір шрифту */
+  font-weight: bold; /* Товщина шрифту */
+  margin-top: 10px; /* Відступ зверху */
+}
+
+/* Стиль для значків з кількістю товарів */
+.badge.bg-warning.text-dark {
+  background-color: #1693c5 !important; /* Колір фону значка */
+  color: #fff !important; /* Колір тексту значка */
+  position: absolute; /* Абсолютне позиціонування */
+  top: 10px; /* Відступ зверху */
+  right: 10px; /* Відступ справа */
+  z-index: 1; /* Рівень накладання */
+  padding: 5px 10px; /* Відступ всередині */
+  border-radius: 12px; /* Округлі кути */
+  font-size: 0.875rem; /* Розмір шрифту */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тінь значка */
+}
+
+/* Стиль для банерів зі знижками */
+.badge-banner {
+  background-color: #87CEEB; /* Колір фону банера */
+  color: #fff; /* Колір тексту банера */
+  top: 60%; /* Відступ зверху */
+  left: 50%; /* Відступ зліва */
+  transform: translate(-50%, -50%); /* Центрування банера */
+  border-radius: 10px; /* Округлі кути */
+  font-size: 1rem; /* Розмір шрифту */
+  padding: 10px 20px; /* Відступ всередині */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Тінь банера */
+  position: absolute; /* Абсолютне позиціонування */
+}
+
+/* Стиль для карток */
+.card {
+  border: none; /* Відсутність меж */
+  background-color: rgba(255, 255, 255, 0.9); /* Напівпрозорий білий фон */
+  margin-bottom: 20px; /* Відступ знизу */
+  border-radius: 10px; /* Округлі кути */
+  overflow: hidden; /* Приховування переповненого контенту */
+}
+
+/* Стиль для заголовків карток */
+.card-header {
+  background-color: #87CEEB; /* Колір фону заголовка */
+  color: #fff; /* Колір тексту заголовка */
+  padding: 15px; /* Відступ всередині */
+  font-size: 1.25rem; /* Розмір шрифту */
+  font-weight: bold; /* Товщина шрифту */
+  border-top-left-radius: 10px; /* Округлі кути зліва зверху */
+  border-top-right-radius: 10px; /* Округлі кути справа зверху */
+}
+
+/* Стиль для тіла карток */
+.card-body {
+  padding: 20px; /* Відступ всередині */
+}
+
+/* Стиль для назв карток */
+.card-title {
+  font-size: 1.5rem; /* Розмір шрифту */
+  font-weight: bold; /* Товщина шрифту */
+  margin-bottom: 10px; /* Відступ знизу */
+  color: #333; /* Колір тексту */
+}
+
+/* Стиль для таблиць */
+.table th {
+  background-color: #87CEEB; /* Колір фону заголовків таблиці */
+  color: #fff; /* Колір тексту заголовків таблиці */
+  padding: 10px; /* Відступ всередині */
+}
+
+.table td {
+  padding: 10px; /* Відступ всередині */
+  vertical-align: middle; /* Вирівнювання по вертикалі */
+}
+
+/* Стиль для кнопок */
+.btn-dark {
+  background-color: #333; /* Колір фону кнопки */
+  color: #fff; /* Колір тексту кнопки */
+  border: none; /* Відсутність меж */
+  padding: 10px 20px; /* Відступ всередині */
+  font-size: 1rem; /* Розмір шрифту */
+  border-radius: 5px; /* Округлі кути */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Анімація при наведенні */
+}
+
+.btn-dark:hover {
+  background-color: #555; /* Колір фону при наведенні */
+  transform: scale(1.05); /* Збільшення кнопки при наведенні */
+}
+
+/* Зменшення розміру кнопок "+" та "-" у кошику */
+.input-group .btn {
+  font-size: 0.8rem; /* Розмір шрифту */
+  padding: 5px 10px; /* Відступ всередині */
+}
+
+.input-group .form-control {
+  font-size: 0.8rem; /* Розмір шрифту */
+  padding: 5px 10px; /* Відступ всередині */
+}
+
+/* Стиль для фону профілю */
+.bg-profile {
+  background-color: rgba(207, 230, 241, 0.9); /* Напівпрозорий блакитний фон */
+  padding: 20px; /* Відступ всередині */
+  border-radius: 10px; /* Округлі кути */
+}
+
+/* Стиль для акордеону */
+.accordion-button-custom {
+  background-color: rgba(117, 204, 240, 0.7); /* Напівпрозорий блакитний фон */
+  color: #000; /* Колір тексту */
+  border: none; /* Відсутність меж */
+  font-weight: bold; /* Товщина шрифту */
+  transition: background-color 0.3s ease, transform 0.3s ease; /* Анімація при наведенні */
+}
+
+.accordion-button-custom:hover {
+  background-color: rgba(117, 204, 240, 0.9); /* Яскравіший фон при наведенні */
+  transform: scale(1.02); /* Збільшення при наведенні */
+}
+
+/* Стиль для картки товару */
+.card.product-card {
+  background-color: rgba(188, 220, 233, 0.9); /* Напівпрозорий блакитний фон */
+}
+
+/* Додаткові стилі (для кошику) */
+h3 {
+  font-size: 1.75rem; /* Розмір шрифту */
+  margin-bottom: 20px; /* Відступ знизу */
+  color: #333; /* Колір тексту */
+  font-weight: bold; /* Товщина шрифту */
+}
+
+form label {
+  font-weight: bold; /* Товщина шрифту */
+}
+
+form input, form select {
+  border: 1px solid #87CEEB; /* Колір межі */
+  border-radius: 5px; /* Округлі кути */
+  padding: 10px; /* Відступ всередині */
+}
+
+.alert {
+  font-size: 0.875rem; /* Розмір шрифту */
+}
+
+.container {
+  max-width: 1200px; /* Максимальна ширина контейнера */
+  margin: 0 auto; /* Центрування контейнера */
+}
+
+.navbar {
+  background-color: #87CEEB; /* Колір фону навігаційної панелі */
+}
+
+.navbar a {
+  color: #000000; /* Колір тексту посилань */
+}
+
+.btn {
+  background-color: #87CEEB; /* Колір фону кнопок */
+  color: #000000; /* Колір тексту кнопок */
+}
+
+.dropdown-menu {
+  background-color: #87CEEB; /* Колір фону випадаючого меню */
+}
+
+/* Стиль для кнопок випадаючого меню при наведенні */
+.dropdown-menu .dropdown-item:hover {
+  background-color: #ffffff; /* Білий фон при наведенні */
+}
+
+.dropdown-item {
+  color: #000000; /* Колір тексту */
+}
+
+/* Стиль для активних кнопок "Назад" та "Наступна" */
+.page-link {
+  background-color: #87CEEB; /* Основний колір для активних кнопок */
+  color: #000; /* Текст активних кнопок */
+  border: none;
+  transition: background-color 0.3s ease, color 0.3s ease; /* Анімація при наведенні */
+}
+
+.page-link:hover {
+  background-color: #4b9def; /* Яскравіший колір при наведенні */
+}
+
+.page-item.disabled .page-link {
+  background-color: #d3d3d3; /* Тьмяний колір для неактивних кнопок */
+}
+
+/* Стиль для активної кнопки сторінки */
+.page-item.active .page-link {
+  background-color: #4b9def; /* Колір для активної сторінки */
+  color: #fff; /* Білий текст для активної сторінки */
+  border: none;
+}
